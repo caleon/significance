@@ -1,0 +1,44 @@
+Significance
+============
+Similar in behavior to Object#presence defined in ActiveSupport, Significance is a state which determines not just the blank-ness of an object but whether or not the non-blank object has any real-world value.
+
+The utility of this gem can best be demonstrated when considering the merging of two hashes. Under normal circumstances the mere existence of an equivalent key in the second hash results in its overriding the corresponding value in the original hash. Using Hash#significant_merge, however, the second hash will retain only key-value pairs whose values are "significant," even applying the significance filter recursively into child hashes or arrays.
+
+
+Example
+=======
+
+ruby-1.9.2-head :025 > [h1, h2, h3, h4, h5].each_with_index{|hsh, i| puts("# #{hsh}.significant") || puts("# => #{hsh.significant}");  nil}
+  {:a=>1, :b=>2, :c=>3, :d=>4}.significant
+  => {:a=>1, :b=>2, :c=>3, :d=>4}
+
+  {:a=>1, :b=>nil, :c=>[], :d=>{}, :e=>" ", :f=>"798", :g=>""}.significant
+  => {:a=>1, :f=>"798"}
+
+  {:a=>1, :b=>nil, :c=>[nil], :d=>{:thing=>nil}, :e=>" [] ", :f=>"        789"}.significant
+  => {:a=>1, :e=>"[]", :f=>"789"}
+
+  {:a=>1, :b=>nil, :c=>[nil, nil], :d=>{:thing=>nil, :thing2=>[]}, :e=>{:thing3=>{:thing4=>{}}}, :f=>[{}], :g=>[{}, {}]}.significant
+  => {:a=>1}
+
+  {:a=>1, :b=>nil, :c=>[nil, {nil=>1, 27=>""}, " "], :d=>{:thing=>{:z=>{:y=>{:x=>{:w=>{:v=>{:u=>[:t, ":s", {:r=>:q}]}}}}}}}, :f=>[{}, [""]]}.significant
+  => {:a=>1, :c=>[{nil=>1}], :d=>{:thing=>{:z=>{:y=>{:x=>{:w=>{:v=>{:u=>[:t, ":s", {:r=>:q}]}}}}}}}}
+        
+  [nil, 1, 3, '', [], [nil, [{}, 2]], ['']].significant
+  => [1, 3, [[2]]]
+
+
+
+TODO: utilize the following:
+
+each_with_object(memo, &block)
+Iterates over a collection, passing the current element and the memo to the block. Handy for building up hashes or reducing collections down to one object. Examples:
+
+%w(foo bar).each_with_object({}) { |str, hsh| hsh[str] = str.upcase }
+# => {'foo' => 'FOO', 'bar' => 'BAR'}
+Note that you can’t use immutable objects like numbers, true or false as the memo. You would think the following returns 120, but since the memo is never changed, it does not.
+
+(1..5).each_with_object(1) { |value, memo| memo *= value } # => 1
+
+
+Copyright (c) 2011 caleon, released under the MIT license

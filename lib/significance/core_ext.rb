@@ -1,0 +1,5 @@
+require File.expand_path('../object',      __FILE__)
+require File.expand_path('../false_class', __FILE__)
+require File.expand_path('../string',      __FILE__)
+require File.expand_path('../array',       __FILE__)
+require File.expand_path('../hash',        __FILE__)
