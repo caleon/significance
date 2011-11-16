@@ -1,5 +1,5 @@
-require File.expand_path('../object',      __FILE__)
-require File.expand_path('../false_class', __FILE__)
-require File.expand_path('../string',      __FILE__)
-require File.expand_path('../array',       __FILE__)
-require File.expand_path('../hash',        __FILE__)
+require 'significance/core_ext/object'
+require 'significance/core_ext/false_class'
+require 'significance/core_ext/string'
+require 'significance/core_ext/array'
+require 'significance/core_ext/hash'

@@ -1,1 +1,5 @@
-require File.expand_path('../significance/core_ext', __FILE__)
+require 'significance/core_ext'
+
+module Significance
+  
+end

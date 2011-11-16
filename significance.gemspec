@@ -1,21 +1,23 @@
-# -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
+
+# Maintain your gem's version:
 require "significance/version"
 
+# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "significance"
   s.version     = Significance::VERSION
-  s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Caleon Chun"]
-  s.email       = ["colin@juscribe.com"]
-  s.homepage    = "http://www.juscribe.com/u/colin"
+  s.authors     = ["caleon"]
+  s.email       = ["caleon@gmail.com"]
+  s.homepage    = "http://github.com/caleon/significance"
   s.summary     = %q{Similar in behavior to Object#presence defined in ActiveSupport, Significance is a state which determines not just the blank-ness of an object but whether or not the non-blank object has any real-world value.}
   s.description = %q{Similar in behavior to Object#presence defined in ActiveSupport, Significance is a state which determines not just the blank-ness of an object but whether or not the non-blank object has any real-world value.}
 
-  s.rubyforge_project = "significance"
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.test_files = Dir["test/**/*"]
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
+  #s.add_dependency "rails", "~> 3.1.1"
+  s.add_dependency 'activesupport', '~> 3.1.1'
+
+  # s.add_development_dependency "sqlite3"
 end
