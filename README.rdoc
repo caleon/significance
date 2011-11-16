@@ -4,6 +4,10 @@ Similar in behavior to Object#presence defined in ActiveSupport, Significance is
 
 The utility of this gem can best be demonstrated when considering the merging of two hashes. Under normal circumstances the mere existence of an equivalent key in the second hash results in its overriding the corresponding value in the original hash. Using Hash#significant_merge, however, the second hash will retain only key-value pairs whose values are "significant," even applying the significance filter recursively into child hashes or arrays.
 
+== Usage:
+
+    gem 'significance', :git => "git://github.com/caleon/significance.git"
+
 
 == Examples:
 
