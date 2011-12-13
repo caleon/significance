@@ -5,12 +5,12 @@ class Hash # also deep now.
 
   # also allows nil so we don't need Something.new(params.merge(params[:etc] || {}))
   def significant_merge(other_hash={})
-    return self unless (other_hash ||= {}).significant?
+    return self unless (other_hash ||= {}).significant.present?
     merge(other_hash.significant)
   end
   # destructive
   def significant_merge!(other_hash={})
-    return self unless (other_hash ||= {}).significant?
+    return self unless (other_hash ||= {}).significant.present?
     merge!(other_hash.significant)
   end
   # need to call significant on self now.
