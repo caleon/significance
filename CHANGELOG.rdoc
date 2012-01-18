@@ -9,3 +9,7 @@
 == 0.1.3
 
 * Lowering dependency requirements
+
+== 0.1.4
+
+* Support for Set
