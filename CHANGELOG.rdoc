@@ -5,3 +5,7 @@
 == 0.0.1
 
 * Testing setup
+
+== 0.1.3
+
+* Lowering dependency requirements

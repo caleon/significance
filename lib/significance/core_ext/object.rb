@@ -1,7 +1,7 @@
 class Object # `significant == self` is the way to end the recursion.
-  def blank?
-    respond_to?(:empty?) ? empty? : !self
-  end
+  # def blank?
+  #   respond_to?(:empty?) ? empty? : !self
+  # end
   
   def significant?
     !blank? and significant == self
