@@ -1,5 +1,7 @@
+require 'active_support/core_ext/object/blank'
 require 'significance/core_ext/object'
 require 'significance/core_ext/false_class'
 require 'significance/core_ext/string'
 require 'significance/core_ext/array'
+require 'significance/core_ext/set'
 require 'significance/core_ext/hash'

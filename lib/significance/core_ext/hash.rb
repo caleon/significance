@@ -1,3 +1,5 @@
+require 'active_support/core_ext/hash/reverse_merge'
+
 class Hash # also deep now.
   def significant
     Hash.new.tap { |hsh| each(&significance_each_block(hsh)) }

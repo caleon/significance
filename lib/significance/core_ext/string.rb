@@ -5,8 +5,8 @@ class String
   def significant
     strip
   end
-  
-  def strictly_significant_string
+
+  def strictly_significant
     gsub(/\s+/, '')
   end
 end

@@ -2,7 +2,7 @@ class Object # `significant == self` is the way to end the recursion.
   # def blank?
   #   respond_to?(:empty?) ? empty? : !self
   # end
-  
+
   def significant?
     !blank? and significant == self
   end
@@ -10,7 +10,7 @@ class Object # `significant == self` is the way to end the recursion.
   def significant
     self
   end
-  
+
   def keep_significant
     respond_to?(:replace) ? replace(significant) : significant
   end
