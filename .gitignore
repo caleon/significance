@@ -1,7 +1,7 @@
 *.gem
 .bundle
 Gemfile.lock
-
+.DS_Store
 pkg/*
 test/dummy/db/*.sqlite3
 test/dummy/db/schema.rb
