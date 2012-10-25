@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "significance"
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["caleon"]
-  s.date = "2012-10-22"
+  s.date = "2012-10-25"
   s.description = "    Similar in behavior to Object#presence defined in ActiveSupport,\n    Significance is a state which determines not just the blank-ness of an\n    object but whether or not the non-blank object has any real-world value.\n    The utility of this gem can best be demonstrated when considering the\n    merging of two hashes. Under normal circumstances the mere existence of an\n    equivalent key in the second hash results in its overriding the\n    corresponding value in the original hash. Using Hash#significant_merge,\n    however, the second hash will retain only key-value pairs whose values are\n    \"significant,\" even applying the significance filter recursively into child\n    hashes or arrays.\n"
   s.email = "caleon@gmail.com"
   s.extra_rdoc_files = [
@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
     "lib/significance/core_ext/set.rb",
     "lib/significance/core_ext/string.rb",
     "lib/tasks/significance_tasks.rake",
+    "significance.gemspec",
     "spec/significance_spec.rb",
     "spec/spec_helper.rb"
   ]
@@ -48,21 +49,24 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<rspec>, ["~> 2.11.0"])
-      s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_development_dependency(%q<bundler>, [">= 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
+      s.add_runtime_dependency(%q<activesupport>, [">= 2.3.5"])
+      s.add_development_dependency(%q<rspec>, [">= 0"])
+      s.add_development_dependency(%q<rdoc>, [">= 0"])
+      s.add_development_dependency(%q<bundler>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
-      s.add_dependency(%q<rspec>, ["~> 2.11.0"])
-      s.add_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_dependency(%q<bundler>, [">= 1.0.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
+      s.add_dependency(%q<activesupport>, [">= 2.3.5"])
+      s.add_dependency(%q<rspec>, [">= 0"])
+      s.add_dependency(%q<rdoc>, [">= 0"])
+      s.add_dependency(%q<bundler>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
     end
   else
-    s.add_dependency(%q<rspec>, ["~> 2.11.0"])
-    s.add_dependency(%q<rdoc>, ["~> 3.12"])
-    s.add_dependency(%q<bundler>, [">= 1.0.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
+    s.add_dependency(%q<activesupport>, [">= 2.3.5"])
+    s.add_dependency(%q<rspec>, [">= 0"])
+    s.add_dependency(%q<rdoc>, [">= 0"])
+    s.add_dependency(%q<bundler>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
   end
 end
 
